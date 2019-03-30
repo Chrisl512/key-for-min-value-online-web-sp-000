@@ -1,20 +1,13 @@
 require 'pry'
 
 def key_for_min_value(name_hash)
-  counter = 0
-  name_hash.collect do |key, value|
-    binding.pry
-    if counter == value
-      return key
-
-    elsif name_hash == {}
-      return nil
-
-    else
-     nil
+  lowest_key = nil
+  lowest_value = Float::INFINITY
+  hash.each do |k, v|
+    if v < lowest_value
+      lowest_value = v
+      lowest_key = k
     end
-
   end
-  counter += 1
-  key_for_min_value(name_hash)
+  lowest_key
 end
